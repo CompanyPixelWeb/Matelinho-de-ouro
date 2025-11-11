@@ -138,7 +138,7 @@ export function BeforeAfterGallery() {
 
       {/* Modal with Interactive Comparison Slider */}
      <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
-      <DialogContent className="max-w-4xl">
+      <DialogContent className="max-w-4xl bg-white/90">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-[#111827]">
             {selectedItem?.service}
@@ -147,28 +147,24 @@ export function BeforeAfterGallery() {
 
         {selectedItem && (
           <div className="space-y-6">
-            {/* Slider Comparativo */}
-            <div className="relative aspect-video rounded-lg overflow-hidden bg-white">
-              {/* Imagem Antes (fundo) */}
+            <div className="relative aspect-video rounded-lg overflow-hidden">
               <img
-                src={selectedItem.before || "/placeholder.svg"}
+                src={selectedItem.after || "/placeholder.svg"}
                 alt="Antes"
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              {/* Imagem Depois (frente, recortada pelo slider) */}
               <div
                 className="absolute inset-0 overflow-hidden"
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
                 <img
-                  src={selectedItem.after || "/placeholder.svg"}
+                  src={selectedItem.before || "/placeholder.svg"}
                   alt="Depois"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
 
-              {/* Controle deslizante */}
               <div
                 className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
                 style={{ left: `${sliderPosition}%` }}
@@ -201,16 +197,14 @@ export function BeforeAfterGallery() {
                 </div>
               </div>
 
-              {/* Labels invertidos */}
-              <div className="absolute top-4 left-4 bg-[#C99B3B] text-white px-3 py-1 rounded-lg text-sm font-medium">
+              <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-medium">
                 Antes
               </div>
-              <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-medium">
+              <div className="absolute top-4 right-4 bg-[#C99B3B] text-white px-3 py-1 rounded-lg text-sm font-medium">
                 Depois
               </div>
             </div>
 
-            {/* Detalhes */}
             <div className="flex flex-wrap gap-4 text-sm">
               <div>
                 <span className="text-[#6B7280]">Data:</span>{" "}
@@ -225,7 +219,6 @@ export function BeforeAfterGallery() {
               </Badge>
             </div>
 
-            {/* Botão CTA */}
             <Button
               onClick={() => openWhatsApp(selectedItem)}
               className="w-full bg-[#E53935] hover:bg-[#d32f2f] text-white rounded-xl py-6 text-lg font-semibold"

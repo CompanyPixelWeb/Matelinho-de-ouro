@@ -38,7 +38,10 @@ export function HowItWorks() {
     <section className="py-16 md:py-24 bg-white">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4 text-balance">Como funciona</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] mb-4 text-balance">
+            Como funciona ? 
+          </h2>
+
           <p className="text-lg text-[#6B7280] max-w-2xl mx-auto text-pretty">
             Processo simples e transparente do primeiro contato até a entrega.
           </p>
@@ -73,7 +76,7 @@ export function HowItWorks() {
         <div className="text-center">
           <Button
             onClick={openWhatsApp}
-            className="bg-[#0B3D91] hover:bg-[#0a3580] text-white rounded-xl px-8 py-6 text-lg font-semibold shadow-lg transition-all hover:-translate-y-1"
+            className="bg-[#E53935] hover:bg-[#d32f2f] text-white rounded-xl px-8 py-6 text-lg font-semibold shadow-lg transition-all hover:-translate-y-1"
           >
             Quero orçamento grátis
           </Button>

@@ -16,23 +16,23 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Carlos Silva",
-    city: "São Paulo, SP",
+    city: "Presidente Prudente, SP",
     rating: 5,
     text: "Excelente serviço! Meu carro ficou perfeito, parece novo. Atendimento rápido e profissional.",
-    photo: "/professional-man.jpg",
+    photo: "/Carlos Silva.jpg",
   },
   {
     id: 2,
     name: "Maria Santos",
-    city: "São Paulo, SP",
+    city: "Martinópolis, SP",
     rating: 5,
-    text: "Recomendo muito! Tiraram um amassado que achei impossível. Ficou impecável.",
-    photo: "/professional-woman-diverse.png",
+    text: "Recomendo muito! Tiraram um amassado que eu achava impossível. Ficou impecável.",
+    photo: "/MariaSantos.jpg",
   },
   {
     id: 3,
     name: "João Oliveira",
-    city: "Guarulhos, SP",
+    city: "Presidente Prudente, SP",
     rating: 5,
     text: "Melhor funilaria da região. Preço justo e qualidade excepcional. Voltarei sempre!",
     photo: "/happy-man.jpg",
@@ -40,18 +40,18 @@ const testimonials: Testimonial[] = [
   {
     id: 4,
     name: "Ana Costa",
-    city: "São Paulo, SP",
+    city: "Regente, SP",
     rating: 5,
-    text: "Atendimento pelo WhatsApp foi super prático. Serviço entregue no prazo e com garantia.",
+    text: "Atendimento pelo WhatsApp foi super prático. Serviço entregue antes do prazo e com garantia.",
     photo: "/smiling-woman.png",
   },
   {
     id: 5,
     name: "Pedro Almeida",
-    city: "Osasco, SP",
+    city: "Presidente Prudente, SP",
     rating: 5,
     text: "Profissionais competentes e honestos. Explicaram todo o processo e o resultado superou expectativas.",
-    photo: "/diverse-businessman.png",
+    photo: "/PedroAlmeida.jpg",
   },
 ]
 
@@ -160,11 +160,6 @@ export function Testimonials() {
               <ChevronRight className="w-6 h-6" />
             </button>
           </div>
-
-          {/* Legal Notice */}
-          <p className="text-center text-xs text-[#6B7280] mt-6">
-            Verificamos a identidade do cliente quando aplicável
-          </p>
         </div>
       </div>
     </section>
