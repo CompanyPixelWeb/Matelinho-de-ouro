@@ -30,7 +30,7 @@ const galleryItems: GalleryItem[] = [
     service: "Polimento e pintura - Porta",
     date: "Jan/2025",
     duration: "3 dias",
-    before: "/polimento-arranhado.jpg",
+    before: "/amassado-lateral.jpg",
     after: "/polimento.jpg",
   },
   {
