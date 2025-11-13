@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Martelinho de Ouro — Funilaria Profissional | Agende pelo WhatsApp",
   description:
     "Funilaria profissional. Remoção de amassados, polimento e pintura. Agende pelo WhatsApp e receba orçamento rápido.",
-  generator: "v0.app",
+  generator: "Pixelweb",
   keywords: [
     "funilaria",
     "martelinho de ouro",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Martelinho de Ouro",
     images: [
       {
-        url: "https://www.seudominio.com/og-image.jpg",
+        url: "favicon.svg",
         width: 1200,
         height: 630,
         alt: "Martelinho de Ouro - Funilaria Profissional",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Martelinho de Ouro — Funilaria Profissional",
     description: "Funilaria profissional. Remoção de amassados, polimento e pintura.",
-    images: ["https://www.seudominio.com/og-image.jpg"],
+    images: ["favicon.svg"],
   },
   robots: {
     index: true,
@@ -67,7 +67,7 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="https://www.seudominio.com" />
+        <link rel="canonical" href="favicon.svg" />
       </head>
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

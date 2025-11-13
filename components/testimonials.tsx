@@ -132,10 +132,10 @@ export function Testimonials() {
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={prevTestimonial}
-              className="p-3 rounded-full bg-white hover:bg-[#C99B3B] hover:text-white transition-all shadow-md"
+              className="p-3 rounded-full bg-white hover:bg-[#C99B3B] transition-all shadow-md group"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-6 h-6 text-[#C99B3B] group-hover:text-white transition-colors" />
             </button>
             <div className="flex gap-2">
               {testimonials.map((_, index) => (
@@ -154,10 +154,10 @@ export function Testimonials() {
             </div>
             <button
               onClick={nextTestimonial}
-              className="p-3 rounded-full bg-white hover:bg-[#C99B3B] hover:text-white transition-all shadow-md"
+              className="p-3 rounded-full bg-white hover:bg-[#C99B3B] transition-all shadow-md group"
               aria-label="Next testimonial"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-6 h-6 text-[#C99B3B] group-hover:text-white transition-colors" />
             </button>
           </div>
         </div>

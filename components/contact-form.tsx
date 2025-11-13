@@ -158,11 +158,11 @@ export function ContactForm() {
                 Serviço desejado *
               </Label>
               <Select
-                value={formData.servico}
+                value={formData.servico || undefined}
                 onValueChange={(value) => setFormData({ ...formData, servico: value })}
               >
-                <SelectTrigger className="border-[#E1E5EA] focus:border-[#C99B3B] focus:ring-[#C99B3B]">
-                  <SelectValue placeholder="Selecione o serviço" />
+                <SelectTrigger className="border-[#E1E5EA] focus:border-[#C99B3B] focus:ring-[#C99B3B] w-full [&>span]:text-[#111827] data-[placeholder]:[&>span]:text-[#6B7280]">
+                  <SelectValue placeholder="Serviços" />
                 </SelectTrigger>
                 <SelectContent className="bg-white text-[#111827] shadow-lg rounded-lg">
                   <SelectItem value="Remoção de amassado">Remoção de amassado</SelectItem>
