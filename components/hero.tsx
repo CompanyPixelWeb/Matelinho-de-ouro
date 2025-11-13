@@ -19,8 +19,8 @@ const beforeAfterImages = [
     id: 2,
     service: "Polimento completo",
     location: "Presidente Prudente, SP",
-    before: "/polimento-arranhado.jpg",
-    after: "/polimento.jpg",
+    before: "/Capo-amassado.jpg",
+    after: "/Capo-arrumado.jpg",
   },
   {
     id: 3,
