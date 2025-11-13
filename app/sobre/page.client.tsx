@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Award, Users, Clock, Shield } from "lucide-react"
 import { BreadcrumbSchema } from "@/components/structured-data"
 
-const WHATSAPP_NUMBER = "5511999999999"
+const WHATSAPP_NUMBER = "5518991246746"
 
 const team = [
   {

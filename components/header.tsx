@@ -67,9 +67,6 @@ export function Header() {
           >
             Depoimentos
           </Link>
-          <Link href="#sobre" className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors">
-            Sobre
-          </Link>
         </nav>
 
         {/* Contact & CTA */}
@@ -91,7 +88,6 @@ export function Header() {
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="md:hidden p-2 text-[#111827]"
@@ -125,13 +121,6 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Depoimentos
-            </Link>
-            <Link
-              href="#sobre"
-              className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Sobre
             </Link>
           </nav>
         </div>

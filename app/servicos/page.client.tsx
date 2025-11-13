@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Clock, DollarSign, CheckCircle } from "lucide-react"
 import { ServiceSchema, BreadcrumbSchema } from "@/components/structured-data"
 
-const WHATSAPP_NUMBER = "5511999999999"
+const WHATSAPP_NUMBER = "5518991246746"
 
 const services = [
   {
