@@ -1,45 +1,47 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
+import { siteConfig } from "@/lib/site-config"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Martelinho de Ouro — Funilaria Profissional | Agende pelo WhatsApp",
-  description:
-    "Funilaria profissional. Remoção de amassados, polimento e pintura. Agende pelo WhatsApp e receba orçamento rápido.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: "Martelinho de Ouro em Presidente Prudente | Remoção de Amassados Sem Pintura",
+    template: "%s | Martelinho de Ouro Presidente Prudente",
+  },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
   generator: "Pixelweb",
   keywords: [
-    "funilaria",
-    "martelinho de ouro",
-    "polimento automotivo",
-    "pintura automotiva",
-    "remoção de amassados",
-    "funilaria São Paulo",
+    "martelinho de ouro presidente prudente",
+    "desamassamento sem pintura presidente prudente",
+    "remoção de amassados presidente prudente",
+    "funilaria presidente prudente",
+    "martelinho de ouro prudente",
+    "polimento automotivo presidente prudente",
+    "funilaria e pintura presidente prudente",
+    "reparo de granizo presidente prudente",
   ],
-  authors: [{ name: "Martelinho de Ouro" }],
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Martelinho de Ouro — Funilaria Profissional",
-    description:
-      "Funilaria profissional. Remoção de amassados, polimento e pintura. Agende pelo WhatsApp e receba orçamento rápido.",
+    title: "Martelinho de Ouro em Presidente Prudente",
+    description: siteConfig.description,
     type: "website",
     locale: "pt_BR",
-    url: "https://www.seudominio.com",
-    siteName: "Martelinho de Ouro",
-    images: [
-      {
-        url: "favicon.svg",
-        width: 1200,
-        height: 630,
-        alt: "Martelinho de Ouro - Funilaria Profissional",
-      },
-    ],
+    url: siteConfig.url,
+    siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Martelinho de Ouro — Funilaria Profissional",
-    description: "Funilaria profissional. Remoção de amassados, polimento e pintura.",
-    images: ["favicon.svg"],
+    title: "Martelinho de Ouro em Presidente Prudente",
+    description: siteConfig.description,
   },
   robots: {
     index: true,
@@ -52,9 +54,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
+  // verification: { google: "COLE_AQUI_O_CODIGO_DO_SEARCH_CONSOLE" }, // configurar ao conectar o Search Console
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -64,11 +69,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="favicon.svg" />
-      </head>
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}

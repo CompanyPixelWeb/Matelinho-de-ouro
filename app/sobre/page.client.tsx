@@ -47,8 +47,8 @@ export default function AboutPageClient() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.seudominio.com" },
-          { name: "Sobre", url: "https://www.seudominio.com/sobre" },
+          { name: "Início", path: "/" },
+          { name: "Sobre", path: "/sobre" },
         ]}
       />
       <Header />
@@ -57,11 +57,12 @@ export default function AboutPageClient() {
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] mb-6 text-balance">
-                Sobre o Martelinho de Ouro
+                Sobre o Martelinho de Ouro em Presidente Prudente
               </h1>
               <p className="text-lg md:text-xl text-[#6B7280] leading-relaxed text-pretty">
-                Há mais de 10 anos transformando carros danificados em veículos como novos. Nossa missão é oferecer
-                serviços de funilaria e pintura com excelência, rapidez e garantia de qualidade.
+                Há mais de 10 anos transformando carros danificados em veículos como novos em Presidente Prudente e
+                região. Nossa missão é oferecer funilaria, pintura e remoção de amassados sem pintura com excelência,
+                rapidez e garantia de qualidade.
               </p>
             </div>
           </div>

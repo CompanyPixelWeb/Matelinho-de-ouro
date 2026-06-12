@@ -61,17 +61,38 @@ export function Footer() {
 
           <div>
             <h3 className="font-bold text-lg mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-              Links Rápidos
+              Serviços
             </h3>
             <div className="space-y-2 text-sm">
-              <Link href="#servicos" className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors">
-                Serviços
+              <Link
+                href="/remocao-amassados-presidente-prudente"
+                className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors"
+              >
+                Remoção de Amassados
               </Link>
-              <Link href="#antes-depois" className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors">
-                Antes/Depois
+              <Link
+                href="/funilaria-presidente-prudente"
+                className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors"
+              >
+                Funilaria e Pintura
               </Link>
-              <Link href="#depoimentos" className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors">
-                Depoimentos
+              <Link
+                href="/polimento-automotivo-presidente-prudente"
+                className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors"
+              >
+                Polimento Automotivo
+              </Link>
+              <Link
+                href="/chuva-de-granizo-presidente-prudente"
+                className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors"
+              >
+                Reparo de Granizo
+              </Link>
+              <Link href="/casos" className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors">
+                Casos (Antes/Depois)
+              </Link>
+              <Link href="/blog" className="block text-[#E1E5EA] hover:text-[#C99B3B] transition-colors">
+                Blog
               </Link>
             </div>
           </div>
