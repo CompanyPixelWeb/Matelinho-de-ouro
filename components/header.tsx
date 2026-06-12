@@ -52,20 +52,17 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="#servicos" className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors">
+          <Link href="/#servicos" className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors">
             Serviços
           </Link>
-          <Link
-            href="#antes-depois"
-            className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors"
-          >
-            Antes/Depois
+          <Link href="/casos" className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors">
+            Casos
           </Link>
-          <Link
-            href="#depoimentos"
-            className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors"
-          >
-            Depoimentos
+          <Link href="/blog" className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors">
+            Blog
+          </Link>
+          <Link href="/sobre" className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors">
+            Sobre
           </Link>
         </nav>
 
@@ -102,25 +99,32 @@ export function Header() {
         <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-[#E1E5EA] shadow-lg">
           <nav className="container-custom py-4 flex flex-col gap-4">
             <Link
-              href="#servicos"
+              href="/#servicos"
               className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Serviços
             </Link>
             <Link
-              href="#antes-depois"
+              href="/casos"
               className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Antes/Depois
+              Casos
             </Link>
             <Link
-              href="#depoimentos"
+              href="/blog"
               className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Depoimentos
+              Blog
+            </Link>
+            <Link
+              href="/sobre"
+              className="text-sm font-medium text-[#111827] hover:text-[#C99B3B] transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Sobre
             </Link>
           </nav>
         </div>

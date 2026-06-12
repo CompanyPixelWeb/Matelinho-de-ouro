@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -73,10 +74,11 @@ export function Hero() {
           {/* Left: Content */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] leading-tight text-balance">
-              Martelinho de Ouro — Recuperamos a aparência do seu carro como novo
+              Martelinho de Ouro em Presidente Prudente
             </h1>
             <p className="text-lg md:text-xl text-[#6B7280] leading-relaxed text-pretty">
-              Funilaria, polimento e reparos rápidos com qualidade profissional e garantia. Agende pelo WhatsApp agora.
+              Remoção de amassados sem pintura com acabamento profissional. Funilaria, polimento e reparos rápidos
+              com garantia, atendendo Presidente Prudente e região. Agende pelo WhatsApp agora.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button
@@ -100,20 +102,26 @@ export function Hero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white">
               <div className="grid grid-cols-2 gap-2 p-2">
                 <div className="relative aspect-[4/3]">
-                  <img
+                  <Image
                     src={beforeAfterImages[currentSlide].before || "/placeholder.svg"}
-                    alt={`${beforeAfterImages[currentSlide].service} - Antes`}
-                    className="w-full h-full object-cover rounded-lg"
+                    alt={`${beforeAfterImages[currentSlide].service} antes do reparo — Martelinho de Ouro em ${beforeAfterImages[currentSlide].location}`}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    className="object-cover rounded-lg"
+                    priority
                   />
                   <div className="absolute top-2 left-2 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-medium">
                     Antes
                   </div>
                 </div>
                 <div className="relative aspect-[4/3]">
-                  <img
+                  <Image
                     src={beforeAfterImages[currentSlide].after || "/placeholder.svg"}
-                    alt={`${beforeAfterImages[currentSlide].service} - Depois`}
-                    className="w-full h-full object-cover rounded-lg"
+                    alt={`${beforeAfterImages[currentSlide].service} depois do reparo — Martelinho de Ouro em ${beforeAfterImages[currentSlide].location}`}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    className="object-cover rounded-lg"
+                    priority
                   />
                   <div className="absolute top-2 left-2 bg-[#C99B3B] text-white px-3 py-1 rounded-lg text-sm font-medium">
                     Depois

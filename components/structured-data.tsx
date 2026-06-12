@@ -1,35 +1,58 @@
+import { siteConfig, absoluteUrl } from "@/lib/site-config"
+
+function JsonLd({ data }: { data: object }) {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+}
+
+/**
+ * Dado estruturado principal do negócio (lido pelo Google para o pacote local / mapa).
+ * NAP, geo e horário vêm de lib/site-config.ts — fonte única da verdade.
+ * Sem aggregateRating: só adicionar quando houver avaliações REAIS sincronizadas.
+ */
 export function LocalBusinessSchema() {
+  const { address, geo } = siteConfig
   const schema = {
     "@context": "https://schema.org",
-    "@type": "AutoRepair",
-    name: "Martelinho de Ouro",
-    description: "Funilaria profissional e rápida. Remoção de amassados, polimento e pintura automotiva.",
-    telephone: "+5511999999999",
+    "@type": "AutoBodyShop",
+    "@id": absoluteUrl("/#business"),
+    name: siteConfig.name,
+    description: siteConfig.description,
+    telephone: siteConfig.phone,
+    url: siteConfig.url,
+    image: absoluteUrl("/opengraph-image"),
+    priceRange: siteConfig.priceRange,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Rua Exemplo, 123",
-      addressLocality: "São Paulo",
-      addressRegion: "SP",
-      postalCode: "00000-000",
-      addressCountry: "BR",
+      streetAddress: address.street,
+      addressLocality: address.city,
+      addressRegion: address.region,
+      postalCode: address.postalCode,
+      addressCountry: address.country,
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "-23.5505",
-      longitude: "-46.6333",
+      latitude: geo.latitude,
+      longitude: geo.longitude,
     },
-    url: "https://www.seudominio.com",
-    openingHours: "Mo-Fr 08:00-18:00, Sa 08:00-13:00",
-    priceRange: "$$",
-    image: "https://www.seudominio.com/og-image.jpg",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "100",
-    },
+    areaServed: siteConfig.cities.map((city) => ({ "@type": "City", name: city })),
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "07:00",
+        closes: "19:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "07:00",
+        closes: "15:00",
+      },
+    ],
+    sameAs: [siteConfig.googleMapsUrl, siteConfig.instagram].filter(Boolean),
   }
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+  return <JsonLd data={schema} />
 }
 
 export function ServiceSchema({ service }: { service: string }) {
@@ -38,58 +61,43 @@ export function ServiceSchema({ service }: { service: string }) {
     "@type": "Service",
     serviceType: service,
     provider: {
-      "@type": "AutoRepair",
-      name: "Martelinho de Ouro",
+      "@type": "AutoBodyShop",
+      name: siteConfig.name,
+      telephone: siteConfig.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.address.street,
+        addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.region,
+        postalCode: siteConfig.address.postalCode,
+        addressCountry: siteConfig.address.country,
+      },
     },
-    areaServed: {
-      "@type": "City",
-      name: "São Paulo",
-    },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Serviços de Funilaria",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: service,
-          },
-        },
-      ],
-    },
+    areaServed: siteConfig.cities.map((city) => ({ "@type": "City", name: city })),
   }
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+  return <JsonLd data={schema} />
 }
 
-export function ReviewSchema({
-  reviews,
-}: { reviews: Array<{ name: string; rating: number; text: string; date: string }> }) {
-  const schema = reviews.map((review) => ({
+/** FAQPage — usar com perguntas/respostas REAIS exibidas na página. */
+export function FAQSchema({ faqs }: { faqs: Array<{ question: string; answer: string }> }) {
+  const schema = {
     "@context": "https://schema.org",
-    "@type": "Review",
-    itemReviewed: {
-      "@type": "AutoRepair",
-      name: "Martelinho de Ouro",
-    },
-    author: {
-      "@type": "Person",
-      name: review.name,
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.rating,
-      bestRating: "5",
-    },
-    reviewBody: review.text,
-    datePublished: review.date,
-  }))
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+  return <JsonLd data={schema} />
 }
 
-export function BreadcrumbSchema({ items }: { items: Array<{ name: string; url: string }> }) {
+export function BreadcrumbSchema({ items }: { items: Array<{ name: string; path: string }> }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -97,9 +105,34 @@ export function BreadcrumbSchema({ items }: { items: Array<{ name: string; url: 
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: item.url,
+      item: absoluteUrl(item.path),
     })),
   }
 
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+  return <JsonLd data={schema} />
+}
+
+/**
+ * Avaliações — SOMENTE com depoimentos REAIS de clientes (ex.: do Google Meu Negócio).
+ * Não usar com dados fictícios: viola as diretrizes do Google e pode gerar penalidade.
+ */
+export function ReviewSchema({
+  reviews,
+}: {
+  reviews: Array<{ name: string; rating: number; text: string; date: string }>
+}) {
+  const schema = reviews.map((review) => ({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "AutoBodyShop",
+      name: siteConfig.name,
+    },
+    author: { "@type": "Person", name: review.name },
+    reviewRating: { "@type": "Rating", ratingValue: review.rating, bestRating: "5" },
+    reviewBody: review.text,
+    datePublished: review.date,
+  }))
+
+  return <JsonLd data={schema} />
 }

@@ -4,12 +4,9 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   images: {
-    unoptimized: true,
+    // next/image serve AVIF/WebP automaticamente e faz lazy-load por padrão.
+    formats: ["image/avif", "image/webp"],
   },
 };
 
 module.exports = nextConfig;
-
-
-
-

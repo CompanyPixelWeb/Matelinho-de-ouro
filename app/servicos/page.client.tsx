@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Clock, DollarSign, CheckCircle } from "lucide-react"
-import { ServiceSchema, BreadcrumbSchema } from "@/components/structured-data"
+import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/components/structured-data"
 
 const WHATSAPP_NUMBER = "5518991246746"
 
@@ -195,10 +195,11 @@ export default function ServicesPageClient() {
   return (
     <>
       <ServiceSchema service="Funilaria e Pintura Automotiva" />
+      <FAQSchema faqs={services.flatMap((s) => s.faqs)} />
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.seudominio.com" },
-          { name: "Serviços", url: "https://www.seudominio.com/servicos" },
+          { name: "Início", path: "/" },
+          { name: "Serviços", path: "/servicos" },
         ]}
       />
       <Header />
@@ -206,10 +207,11 @@ export default function ServicesPageClient() {
         <section className="py-12 md:py-16 bg-gradient-to-b from-[#F6F7F9] to-white">
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] mb-6 text-balance">
-              Nossos Serviços
+              Serviços de Funilaria e Martelinho de Ouro em Presidente Prudente
             </h1>
             <p className="text-lg md:text-xl text-[#6B7280] max-w-3xl mx-auto text-pretty">
-              Soluções completas em funilaria e pintura automotiva com qualidade profissional e garantia de 90 dias.
+              Soluções completas em funilaria, pintura, polimento e remoção de amassados sem pintura, com qualidade
+              profissional e garantia de 90 dias — atendendo Presidente Prudente e região.
             </p>
           </div>
         </section>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -95,20 +96,24 @@ export function BeforeAfterGallery() {
               <div className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-[#E1E5EA]">
                 <div className="grid grid-cols-2 gap-1">
                   <div className="relative aspect-[4/3]">
-                    <img
+                    <Image
                       src={item.before || "/placeholder.svg"}
-                      alt={`${item.service} - Antes`}
-                      className="w-full h-full object-cover"
+                      alt={`${item.service} antes do reparo — Martelinho de Ouro em Presidente Prudente`}
+                      fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 17vw"
+                      className="object-cover"
                     />
                     <div className="absolute top-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium">
                       Antes
                     </div>
                   </div>
                   <div className="relative aspect-[4/3]">
-                    <img
+                    <Image
                       src={item.after || "/placeholder.svg"}
-                      alt={`${item.service} - Depois`}
-                      className="w-full h-full object-cover"
+                      alt={`${item.service} depois do reparo — Martelinho de Ouro em Presidente Prudente`}
+                      fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 17vw"
+                      className="object-cover"
                     />
                     <div className="absolute top-2 left-2 bg-[#C99B3B] text-white px-2 py-1 rounded text-xs font-medium">
                       Depois
@@ -148,20 +153,24 @@ export function BeforeAfterGallery() {
         {selectedItem && (
           <div className="space-y-6">
             <div className="relative aspect-video rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={selectedItem.after || "/placeholder.svg"}
-                alt="Antes"
-                className="absolute inset-0 w-full h-full object-cover"
+                alt={`${selectedItem.service} depois do reparo — Martelinho de Ouro em Presidente Prudente`}
+                fill
+                sizes="(max-width: 896px) 100vw, 896px"
+                className="object-cover"
               />
 
               <div
                 className="absolute inset-0 overflow-hidden"
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
-                <img
+                <Image
                   src={selectedItem.before || "/placeholder.svg"}
-                  alt="Depois"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  alt={`${selectedItem.service} antes do reparo — Martelinho de Ouro em Presidente Prudente`}
+                  fill
+                  sizes="(max-width: 896px) 100vw, 896px"
+                  className="object-cover"
                 />
               </div>
 

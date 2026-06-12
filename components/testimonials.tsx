@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 
 interface Testimonial {
@@ -108,9 +109,11 @@ export function Testimonials() {
                 className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <img
+                  <Image
                     src={testimonial.photo || "/placeholder.svg"}
-                    alt={testimonial.name}
+                    alt={`Cliente ${testimonial.name} — ${testimonial.city}`}
+                    width={64}
+                    height={64}
                     className="w-16 h-16 rounded-full object-cover"
                   />
                   <div>
